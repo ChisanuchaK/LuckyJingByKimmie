@@ -23,31 +23,45 @@ import {ref} from 'vue'
   let reset = ()=> {
     name.value.splice(0 , name.value.length) 
     randomName.value = ''
+    inputName.value = ''
   }
 
   // function lucky Random
     let randomName = ref('')
+
     let random  = (r)=>{
         if(name.value.length >0){
             for(let i in name.value){
           r = name.value[Math.floor(Math.random() * name.value.length)]
           modalLuckyShow.value = true
+
      
       }
         }
         else{
           alert("Please input Value in template")
         }
+        
       return  randomName.value = r
     }
 
   //function group mode
   let numberGroup = ref()
+  let numberGL = ref()
   let nameGroup = ref([])
+
+  let randomGroup = ()=>{
+    modalGroupShow.value = true
+  }
 // back to menu 
   let modalLuckyShow = ref(false)
   let back = ()=>{
       modalLuckyShow.value = false
+  }
+
+  let modalGroupShow = ref(false)
+  let backGroup = ()=>{
+    modalGroupShow.value = false
   }
 
 </script>
@@ -57,7 +71,7 @@ import {ref} from 'vue'
 
   <div>
     
-  <audio controls id="audio" class="audio"   autoplay="autoplay" loop="loop">
+  <audio controls id="audio" class="audio"  autoplay="true" loop="loop">
           <source src="./assets/sound/bg.mp3" type="audio/mp3">
   </audio>
   
@@ -83,7 +97,7 @@ import {ref} from 'vue'
         <!-- modal -->
     <div class="button">
     <button @click="random" class="lucky-mode" :disabled="name.length == 0 ? true : false" >สุ่มผู้โชคดี</button>
-     <button @click="groupMode" class="group-mode" :disabled="name.length == 0 ? true : false">สุ่มกลุ่ม</button>
+     <button @click="randomGroup" class="group-mode" :disabled="name.length == 0 ? true : false">สุ่มกลุ่ม</button>
     </div>
          <!-- modal mode -->
      <!-- modal-lucku-mode -->
@@ -98,19 +112,19 @@ import {ref} from 'vue'
         </div>
       </div>
       <!--modal group mode  -->
-     <!-- <div class="modal-bg">
+     <div class="modal-bg-group" v-show="modalGroupShow == true" >
        <div class="chooseNumbeGroup">
          <h1>กรุณาใส่จำนวนกลุ่มและจำนวนต่อกลุ่ม</h1>
             <form>
-              <label for="numberGroup">จำนวนกลุ่ม : </label>
-              <input id="numberGroup" type="number" placeholder="input number of group"> <br>
-              <label for="no-less">สมาชิกไม่เกิน : </label>
-              <input id="no-less" type="number" placeholder="input number that no less number of group">
+              <label class="numberGroup" for="numberGroup">จำนวนกลุ่ม &ensp;: </label>
+              <input v-model="numberGroup" class="inputNumberG" id="numberGroup" type="number" > <br>
+              <label class="no-less" for="no-less">สมาชิกไม่เกิน : </label>
+              <input v-model="numberGL" class="Group-no-less" id="no-less" type="number" >
             </form>
-            <button >กลับหน้าหลัก</button>
-            <button>สุ่มกลุ่ม</button>
+            <button @click="backGroup"  class="modal-lucky-again">กลับหน้าหลัก</button>
+            <button class="modal-lucky-ok" >สุ่มกลุ่ม</button>
        </div>
-      </div> -->
+      </div>
 
       <!--  -->
   </div>
