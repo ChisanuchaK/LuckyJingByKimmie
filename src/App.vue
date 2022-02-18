@@ -48,14 +48,7 @@ import mutelogo from './assets/muteS.png'
       return  randomName.value = r
     }
 
-  //function group mode
-  let numberGroup = ref()
-  let numberGL = ref()
-  let nameGroup = ref([])
 
-  let randomGroup = ()=>{
-    modalGroupShow.value = true
-  }
 // back to menu 
   let modalLuckyShow = ref(false)
   let back = ()=>{
@@ -82,6 +75,24 @@ let muted = ref(false)
    document.getElementById("audio").muted=muted.value
    document.getElementById("thisMusic").setAttribute('src' , muted.value ? mutelogo: soundlogo)
  } 
+
+  //function group mode
+  let numberGroup = ref()
+  let numberGL = ref()
+  let totalGroup = ref([])
+
+  let ChooseRandomGroup = ()=>{
+    modalGroupShow.value = true
+  }
+  let randomGroup = ()=>{
+    if(name.value.length !=0){
+       let count = Math.ceil(numberGL.value.length / numberGroup.value);
+    for (let i = 0; i < name.value; i++) {
+      totalGroup.value.push(name.value.splice(0, count));
+    }
+    }
+  }
+
 
 </script>
  
@@ -116,7 +127,7 @@ let muted = ref(false)
         <!-- modal -->
     <div class="button">
     <button @click="random" class="lucky-mode" :disabled="name.length == 0 ? true : false" >สุ่มผู้โชคดี</button>
-     <button @click="randomGroup" class="group-mode" :disabled="name.length == 0 ? true : false">สุ่มกลุ่ม</button>
+     <button @click=" ChooseRandomGroup" class="group-mode" :disabled="name.length == 0 ? true : false">สุ่มกลุ่ม</button>
     </div>
          <!-- modal mode -->
      <!-- modal-lucku-mode -->
@@ -138,10 +149,10 @@ let muted = ref(false)
               <label class="numberGroup" for="numberGroup">จำนวนกลุ่ม</label>
               <input v-model="numberGroup" class="inputNumberG" id="numberGroup" type="number" min="1" > <br>
               <label class="no-less" for="no-less">จำนวนสมาชิกในแต่ละกลุ่ม</label>
-              <input v-model="numberGL" class="Group-no-less" id="no-less" type="number" min="1" >
+              <input v-model="numberGL" class="Group-no-less" id="no-less" type="number" min="1" > 
             </form>
             <button @click="backGroup"  class="modal-lucky-again">กลับหน้าหลัก</button>
-            <button class="modal-lucky-ok" >สุ่มกลุ่ม</button>
+            <button @click="randomGroup" class="modal-lucky-ok" >สุ่มกลุ่ม</button>
        </div>
       </div>
 
