@@ -83,7 +83,7 @@ input:focus{
   position: absolute;
   text-align: center;
   right: 38%;
-  top: 24%;
+  top: 20%;
   transition: all 0.3s ease-out;
 }
 .title:focus{
