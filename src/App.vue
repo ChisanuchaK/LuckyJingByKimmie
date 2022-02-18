@@ -1,6 +1,8 @@
 <script setup>
 import {ref} from 'vue'
   document.title = 'lucky jing 🍀'
+  //music
+  const bgMusic = new Audio('.luckyJing\src\assets\sound\bg.mp3')
 // Array name
   let name = ref([]);
   // inputname
@@ -31,6 +33,7 @@ import {ref} from 'vue'
         if(name.value.length >0){
             for(let i in name.value){
           r = name.value[Math.floor(Math.random() * name.value.length)]
+          modalLuckyShow.value = true
      
       }
         }
@@ -40,7 +43,11 @@ import {ref} from 'vue'
       return  randomName.value = r
     }
 
-
+// back to menu
+  let modalLuckyShow = ref(false)
+  let back = ()=>{
+      modalLuckyShow.value = false
+  }
 </script>
  
 <template>
@@ -68,7 +75,15 @@ import {ref} from 'vue'
     <button @click="random" class="lucky-mode" :disabled="name.length == 0 ? true : false" >สุ่มผู้โชคดี</button>
      <button class="group-mode" :disabled="name.length == 0 ? true : false">สุ่มกลุ่ม</button>
     </div>
-
+      <div class="modal-bg" v-show="modalLuckyShow == true">
+        <div class="modal-content"> 
+          <div class="title-modal-lucky">
+            <h1>ขอแสดงความยินดี</h1>
+          </div>
+            <h1 class="lucky-N">{{randomName}}</h1>
+            <button @click="back" class="modal-lucky-ok">กลับสู่หน้าหลัก</button>
+        </div>
+      </div>
   </div>
       </div>
 
