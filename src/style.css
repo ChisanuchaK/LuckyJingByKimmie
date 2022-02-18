@@ -140,6 +140,7 @@ background-color: #219f94;
   width: 30%;
   height: 30%;
   left: 40%;
+  outline: none;
 }
 .input::placeholder{
   padding-left: 10px;

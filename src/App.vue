@@ -61,19 +61,21 @@ import {ref} from 'vue'
 
   let modalGroupShow = ref(false)
   let backGroup = ()=>{
+    numberGL.value = ''
+    numberGroup.value = ''
     modalGroupShow.value = false
   }
 
 </script>
  
 <template>
-
+    <audio id="audio" class="audio" controls  autoplay loop>
+      <source src="./assets/sound/bg.mp3"> 
+    </audio>
 
   <div>
-    
-  <audio controls id="audio" class="audio"  autoplay="true" loop="loop">
-          <source src="./assets/sound/bg.mp3" type="audio/mp3">
-  </audio>
+
+
   
 
     <img class="mascot" src="./assets/mascot.png" >
@@ -117,9 +119,9 @@ import {ref} from 'vue'
          <h1>กรุณาใส่จำนวนกลุ่มและจำนวนต่อกลุ่ม</h1>
             <form>
               <label class="numberGroup" for="numberGroup">จำนวนกลุ่ม &ensp;: </label>
-              <input v-model="numberGroup" class="inputNumberG" id="numberGroup" type="number" > <br>
-              <label class="no-less" for="no-less">สมาชิกไม่เกิน : </label>
-              <input v-model="numberGL" class="Group-no-less" id="no-less" type="number" >
+              <input v-model="numberGroup" class="inputNumberG" id="numberGroup" type="number" min="1" > <br>
+              <label class="no-less" for="no-less">จำนวนสมาชิก : </label>
+              <input v-model="numberGL" class="Group-no-less" id="no-less" type="number" min="1" >
             </form>
             <button @click="backGroup"  class="modal-lucky-again">กลับหน้าหลัก</button>
             <button class="modal-lucky-ok" >สุ่มกลุ่ม</button>
