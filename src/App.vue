@@ -135,9 +135,9 @@ let muted = ref(false)
        <div class="chooseNumbeGroup">
          <h1>กรุณาใส่จำนวนกลุ่มและจำนวนต่อกลุ่ม</h1>
             <form>
-              <label class="numberGroup" for="numberGroup">จำนวนกลุ่ม &ensp;: </label>
+              <label class="numberGroup" for="numberGroup">จำนวนกลุ่ม</label>
               <input v-model="numberGroup" class="inputNumberG" id="numberGroup" type="number" min="1" > <br>
-              <label class="no-less" for="no-less">จำนวนสมาชิก : </label>
+              <label class="no-less" for="no-less">จำนวนสมาชิกในแต่ละกลุ่ม</label>
               <input v-model="numberGL" class="Group-no-less" id="no-less" type="number" min="1" >
             </form>
             <button @click="backGroup"  class="modal-lucky-again">กลับหน้าหลัก</button>

@@ -237,19 +237,29 @@ top: 20%;
   background-color: #f38d86;
 }
 .numberGroup{
+  position: absolute;
  font-size: 23px;
+ top: 32%;
+ left: 24%;
 }
 .no-less{
+  position: absolute;
   font-size: 23px;
-
+  top: 49.5%;
+  left: 24%;
 }
 .inputNumberG{
   text-align: center;
-  margin-top: 3%;
+  position: absolute;
+  top: 32%;
+  right: 27.5%;
   width: 5%;
   border-radius: 15px;
 }
 .Group-no-less{
+  top: 40%;
+  right: 27.5%;
+  position: absolute;
   text-align: center;
   margin-top: 5%;
   width: 5%;
