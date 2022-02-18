@@ -117,7 +117,7 @@ let muted = ref(false)
       <h1 class="title">
           มาสุ่มกันเถอะ
       </h1>
-      <textarea v-model="inputName" id="input" class="input" cols="30" rows="10" placeholder="ใส่ค่าลงในนี้">
+      <textarea v-model="inputName" id="input" class="input" cols="30" rows="10" placeholder="ใส่ค่าลงในนี้ค่าต่อไป ให้กด Enter">
 
       </textarea>
       <div class="addReset-button">

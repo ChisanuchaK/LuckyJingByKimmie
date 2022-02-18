@@ -149,6 +149,7 @@ background-color: #219f94;
   padding-left: 15px;
 }
 .input::placeholder{
+  color: #7a7171;
   padding-left: 10px;
 }
 
