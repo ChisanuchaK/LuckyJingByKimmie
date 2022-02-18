@@ -7,9 +7,26 @@ body{
     height: 92vh;
     position: relative;
     background-position: center;
-
 }
-
+.chooseNumbeGroup{
+  text-align: center;
+  justify-items: center;
+  border-radius: 25px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  right: 24%;
+  top: 25%;
+  background-image: url(./assets/wood.png);
+}
+.audio{
+  position: absolute;
+   right: -7%;
+   top: 2%;
+}
 *{
   font-family: 'Prompt', sans-serif;
 }
@@ -169,6 +186,23 @@ top: 20%;
   left: 43.3%;
   
 }
+.modal-lucky-again{
+  width: 25%;
+  height: 10%;
+  left: 7%;
+  bottom: 1%;
+  position: absolute;
+  border-radius: 15px;
+  font-size: 24px;
+  text-align: center;
+  padding-bottom: 5%;
+  background-color: #099c53;
+}
+.modal-lucky-again:hover{
+  text-decoration: underline;
+  background-color: #5bb186;
+}
+
 .modal-lucky-ok{
   width: 25%;
   height: 10%;
@@ -225,10 +259,10 @@ top: 20%;
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(218, 129, 13, 0.884);
+  background: rgba(136, 80, 7, 0.884);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(136, 80, 7, 0.884);
+  background: rgba(218, 129, 13, 0.884);
 }

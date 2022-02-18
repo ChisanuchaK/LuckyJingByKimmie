@@ -1,8 +1,6 @@
 <script setup>
 import {ref} from 'vue'
   document.title = 'lucky jing 🍀'
-  //music
-  const bgMusic = new Audio('.luckyJing\src\assets\sound\bg.mp3')
 // Array name
   let name = ref([]);
   // inputname
@@ -43,18 +41,30 @@ import {ref} from 'vue'
       return  randomName.value = r
     }
 
-// back to menu
+  //function group mode
+  let numberGroup = ref()
+  let nameGroup = ref([])
+// back to menu 
   let modalLuckyShow = ref(false)
   let back = ()=>{
       modalLuckyShow.value = false
   }
+
 </script>
  
 <template>
+
+
   <div>
+  <audio id="audio" class="audio"  controls autoplay loop >
+          <source src="./assets/sound/bg.mp3" type="audio/mp3">
+
+      </audio>
+  
+
     <img class="mascot" src="./assets/mascot.png" >
     <a href="https://github.com/ChisanuchaK/luckyJing" target="_blank">
-      <img class="logo-git" src="./assets/logo-gti.png">
+      <img class="logo-git" src="./assets/logo-gti.png" >
     </a>
     <img class="logo" src="./assets/logo.png">
 
@@ -73,8 +83,10 @@ import {ref} from 'vue'
         <!-- modal -->
     <div class="button">
     <button @click="random" class="lucky-mode" :disabled="name.length == 0 ? true : false" >สุ่มผู้โชคดี</button>
-     <button class="group-mode" :disabled="name.length == 0 ? true : false">สุ่มกลุ่ม</button>
+     <button @click="groupMode" class="group-mode" :disabled="name.length == 0 ? true : false">สุ่มกลุ่ม</button>
     </div>
+         <!-- modal mode -->
+     <!-- modal-lucku-mode -->
       <div class="modal-bg" v-show="modalLuckyShow == true">
         <div class="modal-content"> 
           <div class="title-modal-lucky">
@@ -82,8 +94,25 @@ import {ref} from 'vue'
           </div>
             <h1 class="lucky-N">{{randomName}}</h1>
             <button @click="back" class="modal-lucky-ok">กลับสู่หน้าหลัก</button>
+              <button @click="random" class="modal-lucky-again">สุ่มอีกครั้ง</button>
         </div>
       </div>
+      <!--modal group mode  -->
+     <!-- <div class="modal-bg">
+       <div class="chooseNumbeGroup">
+         <h1>กรุณาใส่จำนวนกลุ่มและจำนวนต่อกลุ่ม</h1>
+            <form>
+              <label for="numberGroup">จำนวนกลุ่ม : </label>
+              <input id="numberGroup" type="number" placeholder="input number of group"> <br>
+              <label for="no-less">สมาชิกไม่เกิน : </label>
+              <input id="no-less" type="number" placeholder="input number that no less number of group">
+            </form>
+            <button>กลับหน้าหลัก</button>
+            <button>สุ่มกลุ่ม</button>
+       </div>
+      </div> -->
+
+      <!--  -->
   </div>
       </div>
 
