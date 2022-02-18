@@ -27,6 +27,10 @@ body{
   position: absolute;
    right: -7%;
    top: 2%;
+   transition: all .3s ease-out;
+}
+.audio:hover{
+  transform: scale(1.05);
 }
 *{
   font-family: 'Prompt', sans-serif;
