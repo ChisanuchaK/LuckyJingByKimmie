@@ -1,5 +1,8 @@
 <script setup>
-import {ref} from 'vue'
+import {ref , onMounted} from 'vue'
+import soundlogo from './assets/sound.png'
+import mutelogo from './assets/muteS.png'
+
   document.title = 'lucky jing 🍀'
 // Array name
   let name = ref([]);
@@ -65,16 +68,30 @@ import {ref} from 'vue'
     numberGroup.value = ''
     modalGroupShow.value = false
   }
+let muted = ref(false)
+  onMounted(() => {
+  document.querySelector('body').addEventListener('click', () => {
+    document.getElementById('audio').play()
+    muted.value = !muted.value
+    
+
+  })
+})
+
+ let soundMute = ()=>{
+   document.getElementById("audio").muted=muted.value
+   document.getElementById("thisMusic").setAttribute('src' , muted.value ? mutelogo: soundlogo)
+ } 
 
 </script>
  
 <template>
-    <audio id="audio" class="audio" controls  autoplay loop>
+<img @click="soundMute" id="thisMusic" class="audio" src="./assets/sound.png">
+    <audio   id="audio" class="audio"   autoplay loop >
       <source src="./assets/sound/bg.mp3"> 
     </audio>
 
   <div>
-
 
   
 
