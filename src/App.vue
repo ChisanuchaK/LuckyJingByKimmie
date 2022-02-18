@@ -60,13 +60,13 @@ import {ref} from 'vue'
 
       </textarea>
       <div class="addReset-button">
-      <button @click="addname" class="addValue">เพิ่มค่า</button>
-       <button @click="reset" class="reset">รีเซต</button>
+      <button @click="addname" class="addValue" :disabled="inputName.length == 0 ? true : false">เพิ่มค่า</button>
+       <button @click="reset" class="reset" :disabled="name.length == 0 ? true : false">รีเซต</button>
       </div>
         <!-- modal -->
     <div class="button">
-    <button @click="random" class="lucky-mode" >สุ่มผู้โชคดี</button>
-     <button class="group-mode">สุ่มกลุ่ม</button>
+    <button @click="random" class="lucky-mode" :disabled="name.length == 0 ? true : false" >สุ่มผู้โชคดี</button>
+     <button class="group-mode" :disabled="name.length == 0 ? true : false">สุ่มกลุ่ม</button>
     </div>
 
   </div>
