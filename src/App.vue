@@ -56,10 +56,10 @@ import {ref} from 'vue'
 
 
   <div>
-  <audio id="audio" class="audio"  controls autoplay loop >
+    
+  <audio controls id="audio" class="audio"   autoplay="autoplay" loop="loop">
           <source src="./assets/sound/bg.mp3" type="audio/mp3">
-
-      </audio>
+  </audio>
   
 
     <img class="mascot" src="./assets/mascot.png" >
@@ -107,7 +107,7 @@ import {ref} from 'vue'
               <label for="no-less">สมาชิกไม่เกิน : </label>
               <input id="no-less" type="number" placeholder="input number that no less number of group">
             </form>
-            <button>กลับหน้าหลัก</button>
+            <button >กลับหน้าหลัก</button>
             <button>สุ่มกลุ่ม</button>
        </div>
       </div> -->

@@ -23,6 +23,7 @@ body{
   background-image: url(./assets/wood.png);
 }
 .audio{
+  cursor: pointer;
   position: absolute;
    right: -7%;
    top: 2%;
@@ -196,11 +197,12 @@ top: 20%;
   font-size: 24px;
   text-align: center;
   padding-bottom: 5%;
-  background-color: #099c53;
+  background-color: #5bb186;
 }
 .modal-lucky-again:hover{
   text-decoration: underline;
-  background-color: #5bb186;
+  background-color: #099c53;
+ 
 }
 
 .modal-lucky-ok{
@@ -213,11 +215,11 @@ top: 20%;
   font-size: 24px;
   text-align: center;
   padding-bottom: 5%;
-  background-color: #bd923e;
+  background-color: #e9a49f;
 }
 .modal-lucky-ok:hover{
   text-decoration: underline;
-  background-color: #996600;
+  background-color: #f38d86;
 }
 @keyframes myAnim {
     0%,
