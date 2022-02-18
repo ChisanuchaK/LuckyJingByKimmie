@@ -136,6 +136,7 @@ background-color: #219f94;
   text-decoration: underline;
 }
 .input{
+  background-color: #dfb989;
   border-color: rgba(117, 98, 74, 0.884);
   font-size: 16px;
   resize: none;
@@ -143,12 +144,12 @@ background-color: #219f94;
   top: 32%;
   width: 30%;
   height: 30%;
-  left: 40%;
+  left: 39.3%;
   outline: none;
+  padding-left: 15px;
 }
 .input::placeholder{
   padding-left: 10px;
-  padding-top: 10px;
 }
 
 .title{
