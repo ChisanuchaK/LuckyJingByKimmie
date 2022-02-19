@@ -238,11 +238,16 @@ let muted = ref(false)
       <div class="modal-bg-group" v-show="modalGroupShowfinal == true">
           <div class="modal-content-group-submit">
             <h1 class="h1G">ประกาศการจับกลุ่ม</h1>
-                <div class="bg-g">
-             <ul class="GroupName" v-for="(totalGroup , index) in totalGroups" :key="index">
-                 กลุ่มที่ {{index+1}} : {{totalGroup}}
+                <!-- <div class="bg-g"  v-for="(totalGroup , index) in totalGroups" :key="index" >
+             <ul class="GroupName" >
+                   กลุ่มที่ {{index+1}} : {{totalGroup}}     
               </ul>
-                </div>
+                </div> -->
+                <div class="grid-container">
+      <div class="grid-item" v-for="(totalGroup , index) in totalGroups" :key="index">
+         กลุ่มที่{{index+1}} : {{totalGroup}}
+      </div>
+    </div>
           </div>
          <button @click="backGroupfinal"   class="modal-group-final">กลับหน้าจับกลุ่ม</button>
       </div>
