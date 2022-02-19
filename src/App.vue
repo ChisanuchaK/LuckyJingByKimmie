@@ -244,7 +244,8 @@ let history = ()=>{
             <h1 class="h1G">ประกาศการจับกลุ่ม</h1>
                 <div class="grid-container">
       <div class="grid-item" v-for="(totalGroup , index) in totalGroups" :key="index">
-         กลุ่มที่{{index+1}} : {{totalGroup}}
+        <h5 class="indexGroup"> กลุ่มที่{{index+1}} : </h5>
+          <p class="nameHistory"  v-html="totalGroup.join('<br>')"></p>
       </div>
     </div>
           </div>
@@ -254,7 +255,6 @@ let history = ()=>{
       <!--  -->
   </div>
       </div>
-  
 
 </template>
  
