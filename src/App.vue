@@ -4,6 +4,13 @@ import soundlogo from './assets/sound.png'
 import mutelogo from './assets/muteS.png'
 
   document.title = 'lucky jing 🍀'
+//opasity style in image Group P1----------------------------------------------------
+
+let deleteT = ' opacity: 0.5;'
+let deleteF = ' opacity: 1;'
+
+//---------------------------------------------------------------------------------------
+
 // Array save every values
   let name = ref([]);
 
@@ -207,15 +214,15 @@ let muted = ref(false)
       <!--modal group mode  choose -->
      <div class="modal-bg-group" v-show="modalGroupShow == true" >
        <div class="chooseNumbeGroup">
-         <h1>กรุณาใส่จำนวนกลุ่มหรือจำนวนต่อกลุ่ม</h1>
+         <h1>กรุณาใส่จำนวนกลุ่มหรือสมาชิกต่อกลุ่ม</h1>
             <form>
               <label class="numberGroup" for="numberGroup">จำนวนกลุ่ม</label>
               <input :disabled ="numberGL > 0 ? true : false"  v-model="numberGroup" class="inputNumberG" id="numberGroup" type="number" min="1" placeholder="0"> <br>
               <label  class="no-less" for="no-less">จำนวนสมาชิกในแต่ละกลุ่ม</label>
               <input  :disabled ="numberGroup > 0 ? true : false"  v-model="numberGL" class="Group-no-less" id="no-less" type="number" min="1" placeholder="0" > 
             </form>
-            <img @click="resetNumberG" class="delete one" src="./assets/deletenumberG.png" alt="number of group" >
-              <img @click="resetGl" class="delete two" src="./assets/deletenumberG.png" alt="number of person" >
+            <img  :style="numberGL > 0 ? deleteT : deleteF"  @click="resetNumberG" class="delete one" src="./assets/deletenumberG.png" alt="number of group" >
+              <img :style="numberGroup > 0 ? deleteT : deleteF"  @click="resetGl" class="delete two" src="./assets/deletenumberG.png" alt="number of person" >
             <button @click="backGroup"  class="modal-lucky-again">กลับหน้าหลัก</button>
             <button @click="groupF" class="modal-lucky-ok" >สุ่มกลุ่ม</button>
        </div>
@@ -236,7 +243,7 @@ let muted = ref(false)
       <!--  -->
   </div>
       </div>
-
+<!-- :style="boxs.includes(number) ? usedNumber : '' -->
   
 
 </template>
