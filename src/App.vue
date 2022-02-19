@@ -237,11 +237,14 @@ let muted = ref(false)
       <!-- Group mode summit -->
       <div class="modal-bg-group" v-show="modalGroupShowfinal == true">
           <div class="modal-content-group-submit">
-              <ul class="GroupName" v-for="(totalGroup , index) in totalGroups" :key="index">
-                  {{index+1}} : {{totalGroup}}
+            <h1 class="h1G">ประกาศการจับกลุ่ม</h1>
+                <div class="bg-g">
+             <ul class="GroupName" v-for="(totalGroup , index) in totalGroups" :key="index">
+                 กลุ่มที่ {{index+1}} : {{totalGroup}}
               </ul>
+                </div>
           </div>
-         <button @click="backGroupfinal"   class="modal-lucky-again final">กลับหน้าหลัก</button>
+         <button @click="backGroupfinal"   class="modal-group-final">กลับหน้าจับกลุ่ม</button>
       </div>
 
       <!--  -->
