@@ -157,6 +157,10 @@ background-color: #219f94;
   position: absolute;
   top: 22%;
   right: 23.5%;
+  transition: all 1s ease-out;
+}
+.history:hover{
+  transform: scale(1.2);
 }
 .title{
   font-size: 200%;
@@ -189,11 +193,11 @@ bottom: 0;
     width: 10%;
     width: 10%;
     left: 2%;
-    transition: all .3s ease-out;
+    transition: all 1s ease-out;
 }
 
 .logo-git:hover{
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 .wood{
 background-repeat: no-repeat;
