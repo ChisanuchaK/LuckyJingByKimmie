@@ -1,0 +1,132 @@
+.wood{
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50%;
+    position: absolute;
+    right: 20%;
+    top: 20%;
+    }
+.title{
+    font-size: 200%;
+    position: absolute;
+    text-align: center;
+    right: 39%;
+    top: 20%;
+    transition: all 0.3s ease-out;
+   }
+title:focus{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    outline: none;
+    }
+    .input{
+        background-color: #dfb989;
+        border-color: rgba(117, 98, 74, 0.884);
+        font-size: 16px;
+        resize: none;
+        position: absolute;
+        top: 32%;
+        width: 30%;
+        height: 30%;
+        left: 39.3%;
+        outline: none;
+        padding-left: 15px;
+        transition: outline 0.6s linear;
+        outline: solid 1px rgba(53, 35, 1, 0.8);
+      }
+      .input::placeholder{
+        color: #7a7171;
+        padding-left: 10px;
+      }
+      .input:hover{
+        outline-width: 5px;
+      }
+      
+      .history{
+        cursor: pointer;
+        position: absolute;
+        top: 22%;
+        right: 23.5%;
+        transition: all 1s ease-out;
+      }
+      .history:hover{
+        transform: scale(1.2);
+      }
+
+      .group-mode{
+        cursor: pointer;
+        border-radius: 15px;
+        width: 149px;
+        height: 50px;
+        margin-left: 10px;
+        font-size: 24px;
+        background-color: #fabb51;
+      }
+      .group-mode:hover{
+        background-color: #ffd39a;
+        text-decoration: underline;
+      }
+      .reset{
+        cursor: pointer;
+        border-radius: 15px;
+        width: 149px;
+        height: 50px;
+        margin-left:20px;
+        font-size: 24px;
+        background-color: #e96c3a;
+      }
+      .reset:hover{
+        background-color: rgb(241, 151, 128);
+        text-decoration: underline;
+      }
+      .addValue{
+        cursor: pointer;
+        border-radius: 15px;
+        width: 149px;
+        height: 50px;
+        margin-left: 10px;
+        font-size: 24px;
+        background-color: rgb(82, 118, 196);
+      }
+      .addValue:hover{
+        background-color: #4586db;
+        text-decoration: underline;
+      }
+
+      .button {
+        position: absolute;
+        bottom: 16%;
+        left: 44.6%;
+      }
+      .lucky-mode{
+        cursor: pointer;
+        border-radius: 15px;
+        width: 149px;
+        height: 50px;
+        margin-right: 10px;
+      font-size: 24px;
+      background-color: #219f94;
+      }
+      .lucky-mode:hover{
+        background-color: #54bab9;
+        text-decoration: underline;
+      }
+
+        /* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(202, 170, 129, 0.884);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(136, 80, 7, 0.884);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(218, 129, 13, 0.884);
+  }

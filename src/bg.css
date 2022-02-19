@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital@1&display=swap');
+
+body{
+    background-image: url(./assets/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 92vw;
+    height: 92vh;
+    position: relative;
+    background-position: center;
+}
+.logo{
+    position: absolute;
+    width: 10%;
+    width: 10%;
+    left: 2%;
+    transition: all 1s ease-out;
+}
+.logo-git:hover{
+    transform: scale(1.1);
+}
+
+.addReset-button{
+    position: absolute;
+    bottom: 26%;
+    left: 44%;
+
+}
+.logo-git{
+  width: 5%;
+position: absolute;
+right: -100px;
+bottom: 0;
+}
+
+
+.audio{
+     cursor: pointer;
+     position: absolute;
+     right: -7%;
+     top: 2%;
+     transition: all .3s ease-out;
+  }
+  .audio:hover{
+    transform: scale(1.05);
+  }
+  *{
+    font-family: 'Prompt', sans-serif;
+  }
+  .mascot{
+    position: absolute;
+    width: 25%;
+    bottom: 0;
+    left: 0;
+    animation: myAnim 4s ease-out 0.3s infinite normal none;
+}
+
+@keyframes myAnim {
+    0%,
+    100% {
+      transform: translateX(0%);
+      transform-origin: 50% 50%;
+    }
+  
+    15% {
+      transform: translateX(-30px) rotate(-6deg);
+    }
+  
+    30% {
+      transform: translateX(15px) rotate(6deg);
+    }
+  
+    45% {
+      transform: translateX(-15px) rotate(-3.6deg);
+    }
+  
+    60% {
+      transform: translateX(9px) rotate(2.4deg);
+    }
+  
+    75% {
+      transform: translateX(-6px) rotate(-1.2deg);
+    }
+  }
+

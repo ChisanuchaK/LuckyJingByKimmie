@@ -260,5 +260,8 @@ let history = ()=>{
 </template>
  
 <style>
- @import url(./style.css);
+ @import url(./groupMode.css);
+  @import url(./bg.css);
+  @import url(./menuMain.css);
+  @import url(./luckyMode.css);
 </style>

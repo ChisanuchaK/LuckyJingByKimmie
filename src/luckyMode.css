@@ -1,0 +1,73 @@
+
+.title-modal-lucky{
+    position: relative;
+    background-color: #dfb989;
+    width: 70%;
+    left: 15%;
+    border-radius: 15px;
+  }
+  .lucky-N{
+    font-size: 40px;
+    margin-top: 10%;
+  }
+  .modal-bg{
+    position: fixed;
+    background-color: rgba(0, 0 , 0 , 0.7);
+    left: 0;
+    top: 0;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .modal-content{
+    text-align: center;
+    justify-items: center;
+    border-radius: 25px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    right: 24%;
+    top: 25%;
+    background-image: url(./assets/wood.png);
+  }
+  .modal-lucky-again{
+    cursor: pointer;
+    width: 25%;
+    height: 10%;
+    left: 20%;
+    bottom: 10%;
+    position: absolute;
+    border-radius: 15px;
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 5%;
+    background-color: #65be92;
+  }
+  .modal-lucky-again:hover{
+    text-decoration: underline;
+    background-color: #099c53;
+   
+  }
+  
+  .modal-lucky-ok{
+    cursor: pointer;
+    width: 25%;
+    height: 10%;
+    right: 20%;
+    bottom: 10%;
+    position: absolute;
+    border-radius: 15px;
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 5%;
+    background-color: #e9b2af;
+  }
+  .modal-lucky-ok:hover{
+    text-decoration: underline;
+    background-color: #f38d86;
+  }
