@@ -79,19 +79,12 @@ let muted = ref(false)
   //function group mode
   let numberGroup = ref()
   let numberGL = ref()
-  let totalGroup = ref([])
+  let totalGroups = ref([])
 
   let ChooseRandomGroup = ()=>{
     modalGroupShow.value = true
   }
-  let randomGroup = ()=>{
-    if(name.value.length !=0){
-       let count = Math.ceil(numberGL.value.length / numberGroup.value);
-    for (let i = 0; i < name.value; i++) {
-      totalGroup.value.push(name.value.splice(0, count));
-    }
-    }
-  }
+
 
 
 </script>
@@ -141,7 +134,7 @@ let muted = ref(false)
               <button @click="random" class="modal-lucky-again">สุ่มอีกครั้ง</button>
         </div>
       </div>
-      <!--modal group mode  -->
+      <!--modal group mode  choose -->
      <div class="modal-bg-group" v-show="modalGroupShow == true" >
        <div class="chooseNumbeGroup">
          <h1>กรุณาใส่จำนวนกลุ่มและจำนวนต่อกลุ่ม</h1>
@@ -155,6 +148,17 @@ let muted = ref(false)
             <button @click="randomGroup" class="modal-lucky-ok" >สุ่มกลุ่ม</button>
        </div>
       </div>
+
+      <!--  -->
+
+      <!-- Group mode summit -->
+      <!-- <div class="modal-bg-group">
+          <div class="modal-content-group-submit">
+              <ul class="GroupName" v-for="(totalGroup , index) in totalGroups" :key="index">
+                  {{index+1}} : {{totalGroup}}
+              </ul>
+          </div>
+      </div> -->
 
       <!--  -->
   </div>
