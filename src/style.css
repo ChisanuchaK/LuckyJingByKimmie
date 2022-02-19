@@ -75,7 +75,7 @@ body{
 .button {
   position: absolute;
   bottom: 16%;
-  left: 44%;
+  left: 44.6%;
 }
 .group-mode{
   cursor: pointer;
@@ -157,7 +157,7 @@ background-color: #219f94;
   font-size: 200%;
   position: absolute;
   text-align: center;
-  right: 38%;
+  right: 39%;
   top: 20%;
   transition: all 0.3s ease-out;
 }
@@ -201,7 +201,7 @@ top: 20%;
 .addReset-button{
   position: absolute;
   bottom: 26%;
-  left: 43.3%;
+  left: 44%;
   
 }
 .modal-lucky-again{
@@ -276,7 +276,7 @@ top: 20%;
 }
 .modal-bg-group{
   position: fixed;
-  background-color: rgba(0, 0 , 0 , 0.7);
+  background-color: rgba(0, 0 , 0 , 0.3);
   left: 0;
   top: 0;
   justify-items: center;
@@ -288,9 +288,10 @@ top: 20%;
   position: absolute;
   top : 2%;
   left: 1%;
-  width: 20%;
-  height: 20%;
+  width: 100%;
+  height: 100%;
   background-image: url(./assets/wood.png);
+  border-radius: 15px;
   background-size: cover;
 }
 

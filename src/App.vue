@@ -93,8 +93,8 @@ let deleteF = ' opacity: 1;'
 
   //function group mode --------------------------------------------------------------------
 
-  let numberGroup = ref(0)
-  let numberGL = ref(0)
+  let numberGroup = ref()
+  let numberGL = ref()
   let totalGroups = ref([])
 
   let ChooseRandomGroup = ()=>{
@@ -118,9 +118,13 @@ function shuffle(array) {
     console.log(n)
     let member = shuffle(name.value);
     let count = numberGL.value
-    for (let i = 0; i < n ; i++) {
-          totalGroups.value.push(member.splice(0, count));
+    for (let i = 0; i < n ; i++) {    
+       totalGroups.value.push(member.splice(0, count));   
+  
     }
+        while(name.value.length > 0){
+        totalGroups.value.push(name.value.splice(0,name.value.length));          
+      }
    }
    else if (numberGroup.value > 0){
      modalGroupShowfinal.value = true
@@ -159,8 +163,8 @@ let muted = ref(false)
 
 // reset box in group P1 -------------------------------------------------------------------
 
-  let resetGl = ()=>  numberGL.value = 0
-  let resetNumberG = ()=> numberGroup.value = 0
+  let resetGl = ()=>  numberGL.value = ''
+  let resetNumberG = ()=> numberGroup.value = ''
 
 //-----------------------------------------------------------------------------------------
 
@@ -217,7 +221,7 @@ let muted = ref(false)
          <h1>กรุณาใส่จำนวนกลุ่มหรือสมาชิกต่อกลุ่ม</h1>
             <form>
               <label class="numberGroup" for="numberGroup">จำนวนกลุ่ม</label>
-              <input :disabled ="numberGL > 0 ? true : false"  v-model="numberGroup" class="inputNumberG" id="numberGroup" type="number" min="1" placeholder="0"> <br>
+              <input  :disabled ="numberGL > 0 ? true : false"  v-model="numberGroup" class="inputNumberG" id="numberGroup" type="number" min="1" placeholder="0"> <br>
               <label  class="no-less" for="no-less">จำนวนสมาชิกในแต่ละกลุ่ม</label>
               <input  :disabled ="numberGroup > 0 ? true : false"  v-model="numberGL" class="Group-no-less" id="no-less" type="number" min="1" placeholder="0" > 
             </form>
