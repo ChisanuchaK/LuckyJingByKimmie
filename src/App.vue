@@ -4,9 +4,10 @@ import soundlogo from './assets/sound.png'
 import mutelogo from './assets/muteS.png'
 
   document.title = 'lucky jing 🍀'
-// Array name
+// Array save every values
   let name = ref([]);
-  // inputname
+
+  // inputname -----------------------------------------------------------------------------
 
   let inputName = ref('');
   function addname(){
@@ -22,7 +23,11 @@ import mutelogo from './assets/muteS.png'
        alert("input value again")
      }
     }
-  // fucntion Reset
+
+    // -------------------------------------------------------------------------------------
+
+  // fucntion Reset ------------------------------------------------------------------------
+
   let reset = ()=> {
     name.value.length =0
     randomName.value = ''
@@ -30,7 +35,11 @@ import mutelogo from './assets/muteS.png'
     totalGroups.value.length = 0
   }
 
-  // function lucky Random
+  //----------------------------------------------------------------------------------------
+
+
+  // function lucky Random -----------------------------------------------------------------
+
     let randomName = ref('')
 
     let random  = (r)=>{
@@ -49,36 +58,33 @@ import mutelogo from './assets/muteS.png'
       return  randomName.value = r
     }
 
+  //------------------------------------------------------------------------------------------
 
-// back to menu 
+// back to menu ------------------------------------------------------------------------------
+
+          //lucky
   let modalLuckyShow = ref(false)
   let back = ()=>{
     numberGL = ''
       modalLuckyShow.value = false
+      
   }
-
+          //GroupP1
   let modalGroupShow = ref(false)
   let backGroup = ()=>{
-    numberGroup.value = ''
+    numberGroup.value = 0
+    numberGL.value =0
     modalGroupShow.value = false
   }
-  //sound
-let muted = ref(false)
-  onMounted(() => {
-  document.querySelector('body').addEventListener('click', () => {
-    document.getElementById('audio').play()
-    muted.value = !muted.value
-    
+          //GroupP2
+  let backGroupfinal =()=>{
+    modalGroupShowfinal.value = false
+  }
 
-  })
-})
+  //-----------------------------------------------------------------------------------------
 
- let soundMute = ()=>{
-   document.getElementById("audio").muted=muted.value
-   document.getElementById("thisMusic").setAttribute('src' , muted.value ? mutelogo: soundlogo)
- } 
+  //function group mode --------------------------------------------------------------------
 
-  //function group mode
   let numberGroup = ref(0)
   let numberGL = ref(0)
   let totalGroups = ref([])
@@ -119,10 +125,34 @@ else{
 }
 
   }
-// reset box
+
+  //-----------------------------------------------------------------------------------------
+
+  //sound-------------------------------------------------------------------------------------
+
+let muted = ref(false)
+  onMounted(() => {
+  document.querySelector('body').addEventListener('click', () => {
+    document.getElementById('audio').play()
+    muted.value = !muted.value
+    
+
+  })
+})
+
+ let soundMute = ()=>{
+   document.getElementById("audio").muted=muted.value
+   document.getElementById("thisMusic").setAttribute('src' , muted.value ? mutelogo: soundlogo)
+ } 
+
+//-------------------------------------------------------------------------------------------
+
+// reset box in group P1 -------------------------------------------------------------------
+
   let resetGl = ()=>  numberGL.value = 0
   let resetNumberG = ()=> numberGroup.value = 0
 
+//-----------------------------------------------------------------------------------------
 
 </script>
  
@@ -177,9 +207,9 @@ else{
          <h1>กรุณาใส่จำนวนกลุ่มหรือจำนวนต่อกลุ่ม</h1>
             <form>
               <label class="numberGroup" for="numberGroup">จำนวนกลุ่ม</label>
-              <input :disabled ="numberGL > 0 ? true : false"  v-model="numberGroup" class="inputNumberG" id="numberGroup" type="number" min="1" > <br>
+              <input :disabled ="numberGL > 0 ? true : false"  v-model="numberGroup" class="inputNumberG" id="numberGroup" type="number" min="1" placeholder="0"> <br>
               <label  class="no-less" for="no-less">จำนวนสมาชิกในแต่ละกลุ่ม</label>
-              <input  :disabled ="numberGroup > 0 ? true : false"  v-model="numberGL" class="Group-no-less" id="no-less" type="number" min="1" > 
+              <input  :disabled ="numberGroup > 0 ? true : false"  v-model="numberGL" class="Group-no-less" id="no-less" type="number" min="1" placeholder="0" > 
             </form>
             <img @click="resetNumberG" class="delete one" src="./assets/deletenumberG.png" alt="number of group" >
               <img @click="resetGl" class="delete two" src="./assets/deletenumberG.png" alt="number of person" >
@@ -191,12 +221,13 @@ else{
       <!--  -->
 
       <!-- Group mode summit -->
-      <!-- <div class="modal-bg-group">
+      <!-- <div class="modal-bg-group" v-show="modalGroupShowfinal == true">
           <div class="modal-content-group-submit">
               <ul class="GroupName" v-for="(totalGroup , index) in totalGroups" :key="index">
                   {{index+1}} : {{totalGroup}}
               </ul>
           </div>
+         <button @click="backGroup"  class="modal-lucky-again final">กลับหน้าหลัก</button>
       </div> -->
 
       <!--  -->
