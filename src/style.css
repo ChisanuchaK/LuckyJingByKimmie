@@ -281,8 +281,22 @@ top: 20%;
   font-size: 1em;
   list-style-type: none;
 }
-.modal-content-group-submit{
+/* .modal-content-group-submit{
 
+} */
+
+.delete{
+  position: absolute;
+  width: 2.5%;
+  right: 23%;
+  cursor: pointer;
+}
+
+.one{
+  top: 32%;
+}
+.two{
+  top: 50%;
 }
 @keyframes myAnim {
     0%,

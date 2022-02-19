@@ -24,9 +24,10 @@ import mutelogo from './assets/muteS.png'
     }
   // fucntion Reset
   let reset = ()=> {
-    name.value.splice(0 , name.value.length) 
+    name.value.length =0
     randomName.value = ''
     inputName.value = ''
+    totalGroups.value.length = 0
   }
 
   // function lucky Random
@@ -52,12 +53,12 @@ import mutelogo from './assets/muteS.png'
 // back to menu 
   let modalLuckyShow = ref(false)
   let back = ()=>{
+    numberGL = ''
       modalLuckyShow.value = false
   }
 
   let modalGroupShow = ref(false)
   let backGroup = ()=>{
-    numberGL.value = ''
     numberGroup.value = ''
     modalGroupShow.value = false
   }
@@ -78,14 +79,49 @@ let muted = ref(false)
  } 
 
   //function group mode
-  let numberGroup = ref()
-  let numberGL = ref()
+  let numberGroup = ref(0)
+  let numberGL = ref(0)
   let totalGroups = ref([])
 
   let ChooseRandomGroup = ()=>{
     modalGroupShow.value = true
   }
+function shuffle(array) {
+    let currentIndex = array.length, randomIndex;
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+    return array;
+}
 
+  let groupF = ()=>{ 
+   if(numberGL.value > 0){
+      let n  = Math.floor( name.value.length / numberGL.value)
+    console.log(n)
+    let member = shuffle(name.value);
+    let count = numberGL.value
+    for (let i = 0; i < n ; i++) {
+          totalGroups.value.push(member.splice(0, count));
+    }
+   }
+   else if (numberGroup.value > 0){
+    let member2 = shuffle(name.value);
+    let count2 = Math.ceil(member2.length / numberGroup.value);
+    for (let i = 0; i < numberGroup.value; i++) {
+        totalGroups.value.push(member2.splice(0, count2));
+   }
+}
+else{
+  alert ("Please input number in boxs")
+}
+
+  }
+// reset box
+  let resetGl = ()=>  numberGL.value = 0
+  let resetNumberG = ()=> numberGroup.value = 0
 
 
 </script>
@@ -93,7 +129,7 @@ let muted = ref(false)
 <template>
 <img @click="soundMute" id="thisMusic" class="audio" src="./assets/sound.png">
     <audio   id="audio" class="audio"   autoplay loop >
-      <source src="./assets/sound/bg.mp3"> 
+      <source src="./assets/sound/bg2.mp3"> 
     </audio>
 
   <div>
@@ -116,7 +152,7 @@ let muted = ref(false)
       </textarea>
       <div class="addReset-button">
       <button @click="addname" class="addValue" :disabled="inputName.length == 0 ? true : false">เพิ่มค่า</button>
-       <button @click="reset" class="reset" :disabled="name.length == 0 ? true : false">รีเซต</button>
+       <button @click="reset" class="reset" :disabled="name.length == 0 && totalGroups.length == 0 ? true : false">รีเซต</button>
       </div>
         <!-- modal -->
     <div class="button">
@@ -138,15 +174,17 @@ let muted = ref(false)
       <!--modal group mode  choose -->
      <div class="modal-bg-group" v-show="modalGroupShow == true" >
        <div class="chooseNumbeGroup">
-         <h1>กรุณาใส่จำนวนกลุ่มและจำนวนต่อกลุ่ม</h1>
+         <h1>กรุณาใส่จำนวนกลุ่มหรือจำนวนต่อกลุ่ม</h1>
             <form>
               <label class="numberGroup" for="numberGroup">จำนวนกลุ่ม</label>
-              <input v-model="numberGroup" class="inputNumberG" id="numberGroup" type="number" min="1" > <br>
-              <label class="no-less" for="no-less">จำนวนสมาชิกในแต่ละกลุ่ม</label>
-              <input v-model="numberGL" class="Group-no-less" id="no-less" type="number" min="1" > 
+              <input :disabled ="numberGL > 0 ? true : false"  v-model="numberGroup" class="inputNumberG" id="numberGroup" type="number" min="1" > <br>
+              <label  class="no-less" for="no-less">จำนวนสมาชิกในแต่ละกลุ่ม</label>
+              <input  :disabled ="numberGroup > 0 ? true : false"  v-model="numberGL" class="Group-no-less" id="no-less" type="number" min="1" > 
             </form>
+            <img @click="resetNumberG" class="delete one" src="./assets/deletenumberG.png" alt="number of group" >
+              <img @click="resetGl" class="delete two" src="./assets/deletenumberG.png" alt="number of person" >
             <button @click="backGroup"  class="modal-lucky-again">กลับหน้าหลัก</button>
-            <button @click="randomGroup" class="modal-lucky-ok" >สุ่มกลุ่ม</button>
+            <button @click="groupF" class="modal-lucky-ok" >สุ่มกลุ่ม</button>
        </div>
       </div>
 
