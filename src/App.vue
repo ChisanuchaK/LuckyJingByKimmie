@@ -77,6 +77,7 @@ import mutelogo from './assets/muteS.png'
     modalGroupShow.value = false
   }
           //GroupP2
+  let modalGroupShowfinal =ref(false)
   let backGroupfinal =()=>{
     modalGroupShowfinal.value = false
   }
@@ -105,6 +106,7 @@ function shuffle(array) {
 
   let groupF = ()=>{ 
    if(numberGL.value > 0){
+     modalGroupShowfinal.value = true
       let n  = Math.floor( name.value.length / numberGL.value)
     console.log(n)
     let member = shuffle(name.value);
@@ -114,6 +116,7 @@ function shuffle(array) {
     }
    }
    else if (numberGroup.value > 0){
+     modalGroupShowfinal.value = true
     let member2 = shuffle(name.value);
     let count2 = Math.ceil(member2.length / numberGroup.value);
     for (let i = 0; i < numberGroup.value; i++) {
@@ -221,14 +224,14 @@ let muted = ref(false)
       <!--  -->
 
       <!-- Group mode summit -->
-      <!-- <div class="modal-bg-group" v-show="modalGroupShowfinal == true">
+      <div class="modal-bg-group" v-show="modalGroupShowfinal == true">
           <div class="modal-content-group-submit">
               <ul class="GroupName" v-for="(totalGroup , index) in totalGroups" :key="index">
                   {{index+1}} : {{totalGroup}}
               </ul>
           </div>
-         <button @click="backGroup"  class="modal-lucky-again final">กลับหน้าหลัก</button>
-      </div> -->
+         <button @click="backGroupfinal"   class="modal-lucky-again final">กลับหน้าหลัก</button>
+      </div>
 
       <!--  -->
   </div>
