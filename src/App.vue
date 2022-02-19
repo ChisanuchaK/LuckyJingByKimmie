@@ -72,7 +72,6 @@ let deleteF = ' opacity: 1;'
           //lucky
   let modalLuckyShow = ref(false)
   let back = ()=>{
-    numberGL = ''
       modalLuckyShow.value = false
       
   }
@@ -86,6 +85,8 @@ let deleteF = ' opacity: 1;'
           //GroupP2
   let modalGroupShowfinal =ref(false)
   let backGroupfinal =()=>{
+     numberGroup.value = 0
+    numberGL.value =0
     modalGroupShowfinal.value = false
   }
 
@@ -201,7 +202,7 @@ let muted = ref(false)
         <!-- modal -->
     <div class="button">
     <button @click="random" class="lucky-mode" :disabled="name.length == 0 ? true : false" >สุ่มผู้โชคดี</button>
-     <button @click=" ChooseRandomGroup" class="group-mode" :disabled="name.length == 0 ? true : false">สุ่มกลุ่ม</button>
+     <button @click=" ChooseRandomGroup" class="group-mode" :disabled="name.length  == 0 ? true : false" >สุ่มกลุ่ม</button>
     </div>
          <!-- modal mode -->
      <!-- modal-lucku-mode -->
@@ -228,7 +229,7 @@ let muted = ref(false)
             <img  :style="numberGL > 0 ? deleteT : deleteF"  @click="resetNumberG" class="delete one" src="./assets/deletenumberG.png" alt="number of group" >
               <img :style="numberGroup > 0 ? deleteT : deleteF"  @click="resetGl" class="delete two" src="./assets/deletenumberG.png" alt="number of person" >
             <button @click="backGroup"  class="modal-lucky-again">กลับหน้าหลัก</button>
-            <button @click="groupF" class="modal-lucky-ok" >สุ่มกลุ่ม</button>
+            <button @click="groupF" class="modal-lucky-ok" :disabled ="totalGroups.length > 0 ? true : false" >สุ่มกลุ่ม</button>
        </div>
       </div>
 
@@ -245,7 +246,7 @@ let muted = ref(false)
                 </div> -->
                 <div class="grid-container">
       <div class="grid-item" v-for="(totalGroup , index) in totalGroups" :key="index">
-         กลุ่มที่{{index+1}} : {{totalGroup}}
+         กลุ่มที่{{index+1}}} {{totalGroup}}
       </div>
     </div>
           </div>
