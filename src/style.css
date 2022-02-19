@@ -362,14 +362,24 @@ top: 20%;
 }
 .grid-item {
   border-radius: 15px;
-  display: flex;
   background-color: rgba(247, 225, 154, 0.945);
   border: 1px solid rgba(131, 92, 8, 0.8);
   font-size: 1em;
   text-align: center;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
+}
+.indexGroup{
+  margin-top: 1%;
+  margin-left: 9%;
+  position: absolute;
+  padding-top: 0.3%;
+  border-radius: 15px;
+  background-color: #cea244;
+  width: 10%;
+  height: 7%;
+}
+.listG{
+  padding-top: 13%;
 }
 @keyframes myAnim {
     0%,
