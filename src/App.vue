@@ -98,6 +98,7 @@ let deleteF = ' opacity: 1;'
   let numberGL = ref()
   let totalGroups = ref([])
 
+
   let ChooseRandomGroup = ()=>{
     modalGroupShow.value = true
   }
@@ -111,7 +112,6 @@ function shuffle(array) {
     }
     return array;
 }
-
   let groupF = ()=>{ 
    if(numberGL.value > 0){
      modalGroupShowfinal.value = true
@@ -169,6 +169,11 @@ let muted = ref(false)
 
 //-----------------------------------------------------------------------------------------
 
+//history
+
+let history = ()=>{
+  modalGroupShowfinal.value = true
+}
 </script>
  
 <template>
@@ -178,9 +183,6 @@ let muted = ref(false)
     </audio>
 
   <div>
-
-  
-
     <img class="mascot" src="./assets/mascot.png" >
     <a href="https://github.com/ChisanuchaK/luckyJing" target="_blank">
       <img class="logo-git" src="./assets/logo-gti.png" >
@@ -192,6 +194,7 @@ let muted = ref(false)
       <h1 class="title">
           มาสุ่มกันเถอะ
       </h1>
+      <img @click="history" class="history" src="./assets/history.png" v-show="modalGroupShowfinal == false">
       <textarea v-model="inputName" id="input" class="input" cols="30" rows="10" placeholder="ใส่ค่าลงในนี้ค่าต่อไป ให้กด Enter">
 
       </textarea>
@@ -201,7 +204,7 @@ let muted = ref(false)
       </div>
         <!-- modal -->
     <div class="button">
-    <button @click="random" class="lucky-mode" :disabled="name.length == 0 ? true : false" >สุ่มผู้โชคดี</button>
+    <button @click="random" class="lucky-mode" :disabled="name.length == 0 ? true : false"  >สุ่มผู้โชคดี</button>
      <button @click=" ChooseRandomGroup" class="group-mode" :disabled="name.length  == 0 ? true : false" >สุ่มกลุ่ม</button>
     </div>
          <!-- modal mode -->
@@ -239,14 +242,9 @@ let muted = ref(false)
       <div class="modal-bg-group" v-show="modalGroupShowfinal == true">
           <div class="modal-content-group-submit">
             <h1 class="h1G">ประกาศการจับกลุ่ม</h1>
-                <!-- <div class="bg-g"  v-for="(totalGroup , index) in totalGroups" :key="index" >
-             <ul class="GroupName" >
-                   กลุ่มที่ {{index+1}} : {{totalGroup}}     
-              </ul>
-                </div> -->
                 <div class="grid-container">
       <div class="grid-item" v-for="(totalGroup , index) in totalGroups" :key="index">
-         กลุ่มที่{{index+1}}} {{totalGroup}}
+         กลุ่มที่{{index+1}} : {{totalGroup}}
       </div>
     </div>
           </div>
@@ -256,7 +254,6 @@ let muted = ref(false)
       <!--  -->
   </div>
       </div>
-<!-- :style="boxs.includes(number) ? usedNumber : '' -->
   
 
 </template>

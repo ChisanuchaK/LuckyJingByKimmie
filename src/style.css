@@ -152,7 +152,12 @@ background-color: #219f94;
 .input:hover{
   outline-width: 5px;
 }
-
+.history{
+  cursor: pointer;
+  position: absolute;
+  top: 22%;
+  right: 23.5%;
+}
 .title{
   font-size: 200%;
   position: absolute;
