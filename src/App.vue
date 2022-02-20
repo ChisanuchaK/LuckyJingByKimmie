@@ -215,6 +215,7 @@ let history = ()=>{
        <div class="chooseNumbeGroup">
          <h1>กรุณาใส่จำนวนกลุ่มหรือสมาชิกต่อกลุ่ม</h1>
             <form>
+              <label class="numberTitleGroup">จำนวนสมาชิกทั้งหมด : {{name.length}}</label>
               <label class="numberGroup" for="numberGroup">จำนวนกลุ่ม</label>
               <input  :disabled ="numberGL > 0 ? true : false"  v-model="numberGroup" class="inputNumberG" id="numberGroup" type="number" min="1" placeholder="0"> <br>
               <label  class="no-less" for="no-less">จำนวนสมาชิกในแต่ละกลุ่ม</label>
