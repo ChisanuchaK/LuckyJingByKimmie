@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Prompt:ital@1&display=swap');
 
 body{
-    background-image: url(./assets/background.png);
+    background-color: red;
     background-repeat: no-repeat;
     background-size: cover;
     width: 92vw;
-    height: 92vh;
+    height: 99vh;
     position: relative;
     background-position: center;
 }

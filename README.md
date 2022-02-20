@@ -1,7 +1,5 @@
-# Vue 3 + Vite
+#คู่มือการใช้งาน
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended IDE Setup
-
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+ในหน้าแรกเมื่อคลิ๊กในหน้าเว็บส่วนไหนก็ได้จะมีการเล่นเพลงพื้นหลัง </br>
+    - โดยสามารถปิดเสียงได่โดยกด icon รูปลำโพง ดังรูปด้านล่างนี้ </br>
+![!plot](./src/assets/manual/manual-sound.png)
