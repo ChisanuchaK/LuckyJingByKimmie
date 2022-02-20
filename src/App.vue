@@ -118,7 +118,8 @@ function shuffle(array) {
   
     }
         while(name.value.length > 0){
-        totalGroups.value.push(name.value.splice(0,name.value.length));          
+        totalGroups.value.push(name.value.splice(0,name.value.length)); 
+        alert(`กลุ่มที่ไม่ตรงตามเงื่อนไขคือกลุ่ม : ${totalGroups.value.length}`)         
       }
    }
    else if (numberGroup.value > 0){
