@@ -4,7 +4,13 @@
     width: 50%;
     position: absolute;
     right: 20%;
-    top: 20%;
+    top: 21%;
+    }
+    .numberTitle{
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      top: 62.4%;
     }
 .title{
     font-size: 200%;
@@ -24,7 +30,7 @@ title:focus{
         font-size: 16px;
         resize: none;
         position: absolute;
-        top: 32%;
+        top: 31%;
         width: 30%;
         height: 30%;
         left: 39.3%;
