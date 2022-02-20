@@ -190,7 +190,7 @@ let history = ()=>{
       <textarea v-model="inputName" id="input" class="input" cols="30" rows="10" placeholder="ใส่ค่าลงในนี้ค่าต่อไป ให้กด Enter">
 
       </textarea>
-       <label class="numberTitle">จำนวนสมาชิกทั้งหมด : {{name.length}}</label>
+       <label class="numberTitle">จำนวนค่าทั้งหมด : {{name.length}}</label>
       <div class="addReset-button">
       <button @click="addname" class="addValue" :disabled="inputName.length == 0 ? true : false">เพิ่มค่า</button>
        <button @click="reset" class="reset" :disabled="name.length == 0 && totalGroups.length == 0 ? true : false">รีเซต</button>
