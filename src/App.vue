@@ -179,7 +179,7 @@ let history = () => {
         v-model="inputName"
         id="input"
         class="input"
-        rows="10"
+        rows="10" 
         placeholder="ใส่ค่าลงในนี้ค่าต่อไป ให้กด Enter"
       >
       </textarea>
@@ -187,14 +187,14 @@ let history = () => {
       <div class="input-group">
         <button
           @click="addname"
-          class="addValue"
+          class="addValue mainb"
           :disabled="inputName.length == 0 ? true : false"
         >
           เพิ่มค่า
         </button>
         <button
           @click="reset"
-          class="reset"
+          class="reset mainb"
           :disabled="name.length == 0 && totalGroups.length == 0 ? true : false"
         >
           รีเซต
@@ -204,14 +204,14 @@ let history = () => {
       <div class="input-group">
         <button
           @click="random"
-          class="lucky-mode"
+          class="lucky-mode mainb"
           :disabled="name.length == 0 ? true : false"
         >
           สุ่มผู้โชคดี
         </button>
         <button
           @click="ChooseRandomGroup"
-          class="group-mode"
+          class="group-mode mainb"
           :disabled="name.length == 0 ? true : false"
         >
           สุ่มกลุ่ม
@@ -223,71 +223,97 @@ let history = () => {
     <div class="modal-bg" v-show="modalLuckyShow == true">
       <div class="modal-content">
         <div class="title-modal-lucky">
-          <h1>ขอแสดงความยินดี</h1>
+          <h1 class="con">ขอแสดงความยินดี</h1>
         </div>
-        <div style="display: table; height: 100%;">
+        <div style="display: table; height: 100%">
           <h1 class="lucky-N">{{ randomName }}</h1>
         </div>
         <div class="input-group">
-          <button @click="random" class="modal-btn modal-lucky-again">สุ่มอีกครั้ง</button>
-          <button @click="back" class="modal-btn modal-lucky-ok">กลับสู่หน้าหลัก</button>
+          <button @click="random" class="modal-btn modal-lucky-again">
+            สุ่มอีกครั้ง
+          </button>
+          <button @click="back" class="modal-btn modal-lucky-ok">
+            กลับสู่หน้าหลัก
+          </button>
         </div>
       </div>
     </div>
     <!--modal group mode  choose -->
     <div class="modal-bg-group" v-show="modalGroupShow == true">
       <div class="chooseNumbeGroup">
-        <h1>กรุณาใส่จำนวนกลุ่มหรือสมาชิกต่อกลุ่ม</h1>
-        <form>
+        <div class="title-group">
+          <h1 class="title-g2">กรุณาใส่จำนวนกลุ่มหรือสมาชิกต่อกลุ่ม</h1>
           <label class="numberTitleGroup"
             >จำนวนสมาชิกทั้งหมด : {{ name.length }}</label
           >
-          <label class="numberGroup" for="numberGroup">จำนวนกลุ่ม</label>
-          <input
-            :disabled="numberGL > 0 ? true : false"
-            v-model="numberGroup"
-            class="inputNumberG"
-            id="numberGroup"
-            type="number"
-            min="1"
-            placeholder="0"
-          />
-          <br />
-          <label class="no-less" for="no-less">จำนวนสมาชิกในแต่ละกลุ่ม</label>
-          <input
-            :disabled="numberGroup > 0 ? true : false"
-            v-model="numberGL"
-            class="Group-no-less"
-            id="no-less"
-            type="number"
-            min="1"
-            placeholder="0"
-          />
-        </form>
-        <img
-          :style="numberGL > 0 ? deleteT : deleteF"
-          @click="resetNumberG"
-          class="delete one"
-          src="./assets/deletenumberG.png"
-          alt="number of group"
-        />
-        <img
-          :style="numberGroup > 0 ? deleteT : deleteF"
-          @click="resetGl"
-          class="delete two"
-          src="./assets/deletenumberG.png"
-          alt="number of person"
-        />
-        <button @click="backGroup" class="modal-lucky-again">
-          กลับหน้าหลัก
-        </button>
-        <button
-          @click="groupF"
-          class="modal-lucky-ok"
-          :disabled="totalGroups.length > 0 ? true : false"
-        >
-          สุ่มกลุ่ม
-        </button>
+          <div class="content-all">
+            <form>
+              <div class="box-numberG">
+                <label class="contentG " for="numberGroup"
+                  >จำนวนกลุ่ม</label
+                >
+                <div class="sum-input-bin1">
+                  <input
+                  :disabled="numberGL > 0 ? true : false"
+                  v-model="numberGroup"
+                  class="numberInputC "
+                  id="numberGroup"
+                  type="number"
+                  min="1"
+                  placeholder="0"
+                />
+                <img
+                  :style="numberGL > 0 ? deleteT : deleteF"
+                  @click="resetNumberG"
+                  class="delete"
+                  src="./assets/deletenumberG.png"
+                  alt="number of group"
+                />
+                </div>
+              </div>
+
+              <div class="box-numberGl">
+                  <label class="contentG " for="no-less"
+                >จำนวนสมาชิกในแต่ละกลุ่ม</label
+              >
+              <div class="sum-input-bin2">
+                 <input
+                :disabled="numberGroup > 0 ? true : false"
+                v-model="numberGL"
+                class="numberInputC "
+                id="no-less"
+                type="number"
+                min="1"
+                placeholder="0"
+              />
+                <img
+              :style="numberGroup > 0 ? deleteT : deleteF"
+              @click="resetGl"
+              class="delete"
+              src="./assets/deletenumberG.png"
+              alt="number of person"
+            />
+              </div>
+              </div>
+            
+            </form>
+
+          
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button @click="backGroup" class="modal-btnG modal-lucky-again">
+            กลับหน้าหลัก
+          </button>
+          <button
+            @click="groupF"
+            class="modal-btnG modal-lucky-ok"
+            :disabled="totalGroups.length > 0 ? true : false"
+          >
+            สุ่มกลุ่ม
+          </button>
+        </div>
       </div>
     </div>
 
@@ -296,21 +322,30 @@ let history = () => {
     <!-- Group mode summit -->
     <div class="modal-bg-group" v-show="modalGroupShowfinal == true">
       <div class="modal-content-group-submit">
-        <h1 class="h1G">ประกาศการจับกลุ่ม</h1>
+          <div class="title-modal-submit">
+            <h1 class="h1G">ประกาศการจับกลุ่ม</h1>
+          </div>
         <div class="grid-container">
           <div
             class="grid-item"
             v-for="(totalGroup, index) in totalGroups"
             :key="index"
           >
-            <h4 class="indexGroup">กลุ่มที่{{ index + 1 }}</h4>
+            <div class="list-Group-final">
+                <div class="head-modalG">
+                     <h4 class="indexGroup">กลุ่มที่{{ index + 1 }}</h4>
+                </div>
             <p class="listG" v-html="totalGroup.join('<br>')"></p>
+            </div>
           </div>
         </div>
-      </div>
-      <button @click="backGroupfinal" class="modal-group-final">
+            <div class="back-final-maodal">
+                <button @click="backGroupfinal" class="modal-group-final">
         กลับหน้าจับกลุ่ม
       </button>
+            </div>
+      </div>
+     
     </div>
 
     <!--  -->
