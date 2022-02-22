@@ -1,8 +1,26 @@
 .numberTitle {
+  background-color: #ebbe70;
+  border-radius: 15px;
+  cursor: pointer;
   font-size: 15px;
   display: block;
   text-align: center;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
 }
+.numberTitle:hover{
+  background-color: #fabb51;
+  text-decoration: underline;
+}
+.mainList{
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5%;
+  background-color: rgba(229, 193, 145, 0.5);
+  width: 80%;
+}
+
 .title {
   font-size: 29px;
   text-align: center;
@@ -85,7 +103,7 @@
   text-align: center;
   min-width: 80%;
   padding: 2em 0;
-  background-image: url("./assets/wood.png");
+  background-image: url("./assets/img/wood.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 92% 95%;

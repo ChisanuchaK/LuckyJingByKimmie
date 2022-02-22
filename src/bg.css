@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Prompt:ital@1&display=swap");
 
 body {
-  background-image: url(./assets/background.png);
+  background-image: url(./assets/img/background.png);
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
