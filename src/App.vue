@@ -322,7 +322,7 @@ const history = () => {
             </div>
           </div>
           <div class="back-final-maodal">
-            <button @click="backGroupfinal" class="modal-group-final">กลับหน้าจับกลุ่ม</button>
+            <button @click="backGroupfinal" class="modal-group-final">กลับสู่หน้าหลัก</button>
           </div>
         </div>
       </div>
