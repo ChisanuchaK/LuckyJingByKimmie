@@ -38,7 +38,7 @@ npm install # or `yarn install`
 ```
 npm run dev
 ```
-Open http://localhost:8080/ to see the site locally. Changes to assets will rebuild the site. Refresh to see your changes.
+Open http://localhost:3000/ to see the site locally. Changes to assets will rebuild the site. Refresh to see your changes.
 
 ## 🍀 User Manual ✧ﾟ
 * <img src="./src/assets/img/sound.png" width="30"> 
