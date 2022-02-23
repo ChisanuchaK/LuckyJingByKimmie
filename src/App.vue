@@ -217,7 +217,7 @@ const history = () => {
           <button
             @click="chooseRandomGroup"
             class="group-mode mainb"
-            :disabled="name.length == 0"
+            :disabled="totalGroups.length !== 0 || name.length == 0 "
           >สุ่มกลุ่ม</button>
         </div>
       </div>
