@@ -1,122 +1,142 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import soundlogo from './assets/img/sound.png'
-import mutelogo from './assets/img/muteS.png'
-document.title = 'lucky jing 🍀'
+import { ref, onMounted , computed } from "vue";
+import soundlogo from "./assets/img/sound.png";
+import mutelogo from "./assets/img/muteS.png";
+document.title = "lucky jing 🍀";
 //opasity style in image Group P1----------------------------------------------------
 
-const deleteT = 'opacity: 0.5;'
-const deleteF = 'opacity: 1;'
+const deleteT = "opacity: 0.5;";
+const deleteF = "opacity: 1;";
 
 // Array save every values
-const name = ref([])
+const name = ref([]);
 
 // function add inputname Values --------------------------------------------------------------
 
-const inputName = ref('')
+const inputName = ref("");
 
 const addname = () => {
   if (name.value.length >= 0) {
-    inputName.value.split('\n').forEach((e) => {
+    inputName.value.split("\n").forEach((e) => {
       if (e.length > 0) {
-        name.value.push(e)
+        name.value.push(e);    
       }
-    })
-  } else {
-    alert('input value again')
+    });
+  } 
+ const dupicate = findDuplicates(name.value)
+ if(dupicate.length > 0){
+     alert(`รายชื่อที่ซ้ำคือ : ${dupicate}`)
+ }
+
+  name.value = [...new Set(name.value)];
+};
+
+//find dupicate 
+
+const findDuplicates = (arr) => {
+  if (!arr) return
+  arr.sort()
+  const dups = []
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[i + 1]) {
+      if (dups[dups.length - 1] !== arr[i]) {
+        dups.push(arr[i])
+      }
+    }
   }
-  name.value = [...new Set(name.value)]
+  return dups
 }
+
 
 // fucntion Reset ------------------------------------------------------------------------
 
 const reset = () => {
-  name.value.length = 0
-  randomName.value = ''
-  inputName.value = ''
-  totalGroups.value.length = 0
-}
+  name.value.length = 0;
+  randomName.value = "";
+  inputName.value = "";
+  totalGroups.value.length = 0;
+};
 
 // function lucky Random -----------------------------------------------------------------
 
-const randomName = ref('')
+const randomName = ref("");
 
 const random = (r) => {
   if (name.value.length > 0) {
     for (let i in name.value) {
-      r = name.value[Math.floor(Math.random() * name.value.length)]
-      modalLuckyShow.value = true
+      r = name.value[Math.floor(Math.random() * name.value.length)];
+      modalLuckyShow.value = true;
     }
   } else {
-    alert('Please input Value in template')
+    alert("Please input Value in template");
   }
 
-  return (randomName.value = r)
-}
-
+  return (randomName.value = r);
+};
 
 // function show List
-const modalShowList = ref(false)
-const list = ref('')
+const modalShowList = ref(false);
+const list = ref("");
 const showList = () => {
   if (name.value.length > 0) {
-      modalShowList.value = true
+    modalShowList.value = true;
   } else {
-    alert('Please input Value in template')
+    alert("Please input Value in template");
   }
-}
+};
 const listBack = () => {
-  modalShowList.value = false
-}
+  modalShowList.value = false;
+};
 
 // back to menu ------------------------------------------------------------------------------
 
 //lucky
-const modalLuckyShow = ref(false)
+const modalLuckyShow = ref(false);
 const back = () => {
-  modalLuckyShow.value = false
-}
+  modalLuckyShow.value = false;
+};
 
 //GroupP1
-const modalGroupShow = ref(false)
+const modalGroupShow = ref(false);
 const backGroup = () => {
-  numberGroup.value = null
-  numberGL.value = null
-  modalGroupShow.value = false
-}
+  numberGroup.value = null;
+  numberGL.value = null;
+  modalGroupShow.value = false;
+};
 
 //GroupP2
-const modalGroupShowfinal = ref(false)
+const modalGroupShowfinal = ref(false);
 const backGroupfinal = () => {
-  numberGroup.value = null
-  numberGL.value = null
-  modalGroupShow.value = false
-  modalGroupShowfinal.value = false
-}
+  numberGroup.value = null;
+  numberGL.value = null;
+  modalGroupShow.value = false;
+  modalGroupShowfinal.value = false;
+};
 
 //function group mode --------------------------------------------------------------------
 
-const numberGroup = ref()
-const numberGL = ref()
-const totalGroups = ref([])
+const numberGroup = ref();
+const numberGL = ref();
+const totalGroups = ref([]);
 
 const chooseRandomGroup = () => {
-  modalGroupShow.value = true
-}
+  modalGroupShow.value = true;
+};
 
-const shuffle = array => {
+const shuffle = (array) => {
   let currentIndex = array.length,
     randomIndex;
   while (currentIndex != 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex)
-    currentIndex--
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex],
       array[currentIndex],
-    ]
+    ];
   }
   return array;
-}
+};
 
 let groupF = () => {
   if (numberGL.value > 0) {
@@ -129,7 +149,7 @@ let groupF = () => {
       totalGroups.value.push(member.splice(0, count));
     }
     while (name.value.length > 0) {
-      totalGroups.value.push(name.value.splice(0, name.value.length));
+     totalGroups.value.push(name.value.splice(0, name.value.length));
       alert(`กลุ่มที่ไม่ตรงตามเงื่อนไขคือกลุ่ม : ${totalGroups.value.length}`);
     }
   } else if (numberGroup.value > 0) {
@@ -145,36 +165,52 @@ let groupF = () => {
 };
 //sound------------------------------------------------------------------------------------
 
-const muted = ref(false)
+const muted = ref(false);
 onMounted(() => {
-  document.querySelector('body').addEventListener('click', () => {
-    document.getElementById("audio").play()
-    muted.value = !muted.value
-  })
-})
+  document.querySelector("body").addEventListener("click", () => {
+    document.getElementById("audio").play();
+    muted.value = !muted.value;
+  });
+});
 
 const soundMute = () => {
-  document.getElementById('audio').muted = muted.value
+  document.getElementById("audio").muted = muted.value;
   document
-    .getElementById('thisMusic')
-    .setAttribute("src", muted.value ? mutelogo : soundlogo)
-}
+    .getElementById("thisMusic")
+    .setAttribute("src", muted.value ? mutelogo : soundlogo);
+};
 
 // reset box in group P1 -------------------------------------------------------------------
 
-const resetGl = () => numberGL.value = null
-const resetNumberG = () => numberGroup.value = null
+const resetGl = () => (numberGL.value = null);
+const resetNumberG = () => (numberGroup.value = null);
 
 //history-------------------------------------------------------------------------------------
 
 const history = () => {
-  modalGroupShowfinal.value = true
-}
+  modalGroupShowfinal.value = true;
+};
+
+//singleRemove-------------------------------------------------------------------------------
+const singleRemove = (index) => {
+  name.value.splice(index, 1);
+  inputName.value = name.value.reduce((prev, curr) => {
+    return `${prev}\n${curr}`;
+  });
+};
+
+
+
 </script>
 
 <template>
   <div>
-    <img @click="soundMute" id="thisMusic" class="audio" src="./assets/img/sound.png" />
+    <img
+      @click="soundMute"
+      id="thisMusic"
+      class="audio"
+      src="./assets/img/sound.png"
+    />
     <audio id="audio" class="audio" autoplay loop>
       <source src="./assets/sound/bg2.mp3" />
     </audio>
@@ -191,34 +227,52 @@ const history = () => {
           @click="history"
           class="history"
           src="./assets/img/history.png"
-          v-show="modalGroupShowfinal == false"
+          v-show="totalGroups.length != 0"
         />
         <textarea
           v-model="inputName"
           id="input"
           class="input"
           rows="10"
-          placeholder="ใส่ค่าลงในนี้ค่าต่อไป ให้กด Enter&#10;ข้อมูลซ้ำจะถูกตัดออกโดยอัตโนมัติ&#10;ตัวอย่างการกรอกข้อมูล :&#10;มิ้น&#10;นาย&#10;คิม&#10;ปอย&#10;บิลลี่"
+          placeholder="กรุณาใส่ชื่อ แล้วกด Enter&#10;ข้อมูลซ้ำจะถูกตัดออกโดยอัตโนมัติ&#10;ตัวอย่างการกรอกข้อมูล :&#10;มิ้น&#10;นาย&#10;คิม&#10;ปอย&#10;บิลลี่"
         ></textarea>
-       <div class="devNumberTitle"><label class="numberTitle" @click="showList">จำนวนค่าทั้งหมด : {{ name.length }}</label></div>
+        <div class="devNumberTitle">
+          <label class="numberTitle" @click="showList"
+            >จำนวนทั้งหมด : {{ name.length }}</label
+          >
+        </div>
         <div class="input-group">
-          <button @click="addname" class="addValue mainb" :disabled="inputName.length == 0">เพิ่มค่า</button>
+          <button
+            @click="addname"
+            class="addValue mainb"
+            :disabled="inputName.length == 0"
+          >
+            เพิ่มค่า
+          </button>
           <button
             @click="reset"
             class="reset mainb"
-            :disabled="
-              (name.length == 0 && totalGroups.length == 0)
-            "
-          >รีเซต</button>
+            :disabled="name.length == 0 && totalGroups.length == 0"
+          >
+            รีเซต
+          </button>
         </div>
         <!-- modal -->
         <div class="input-group">
-          <button @click="random" class="lucky-mode mainb" :disabled="name.length == 0">สุ่มผู้โชคดี</button>
+          <button
+            @click="random"
+            class="lucky-mode mainb"
+            :disabled="name.length == 0"
+          >
+            สุ่มผู้โชคดี
+          </button>
           <button
             @click="chooseRandomGroup"
             class="group-mode mainb"
-            :disabled="totalGroups.length !== 0 || name.length == 0 "
-          >สุ่มกลุ่ม</button>
+            :disabled="totalGroups.length !== 0 || name.length == 0"
+          >
+            สุ่มกลุ่ม
+          </button>
         </div>
       </div>
       <!-- modal mode -->
@@ -232,8 +286,12 @@ const history = () => {
             <h1 class="lucky-N">{{ randomName }}</h1>
           </div>
           <div class="input-group">
-            <button @click="random" class="modal-btn modal-lucky-again">สุ่มอีกครั้ง</button>
-            <button @click="back" class="modal-btn modal-lucky-ok">กลับสู่หน้าหลัก</button>
+            <button @click="random" class="modal-btn modal-lucky-again">
+              สุ่มอีกครั้ง
+            </button>
+            <button @click="back" class="modal-btn modal-lucky-ok">
+              กลับสู่หน้าหลัก
+            </button>
           </div>
         </div>
       </div>
@@ -242,7 +300,9 @@ const history = () => {
         <div class="chooseNumbeGroup">
           <div class="title-group">
             <h1 class="title-g2">กรุณาใส่จำนวนกลุ่มหรือสมาชิกต่อกลุ่ม</h1>
-            <label class="numberTitleGroup">จำนวนสมาชิกทั้งหมด : {{ name.length }}</label>
+            <label class="numberTitleGroup"
+              >จำนวนสมาชิกทั้งหมด : {{ name.length }}</label
+            >
             <div class="content-all">
               <form>
                 <div class="box-numberG">
@@ -268,7 +328,9 @@ const history = () => {
                 </div>
 
                 <div class="box-numberGl">
-                  <label class="contentG" for="no-less">จำนวนสมาชิกในแต่ละกลุ่ม</label>
+                  <label class="contentG" for="no-less"
+                    >จำนวนสมาชิกในแต่ละกลุ่ม</label
+                  >
                   <div class="sum-input-bin2">
                     <input
                       :disabled="numberGroup > 0"
@@ -293,12 +355,16 @@ const history = () => {
           </div>
 
           <div class="button-group">
-            <button @click="backGroup" class="modal-btnG modal-lucky-ok">กลับสู่หน้าหลัก</button>
+            <button @click="backGroup" class="modal-btnG modal-lucky-ok">
+              กลับสู่หน้าหลัก
+            </button>
             <button
               @click="groupF"
               class="modal-btnG modal-lucky-again"
               :disabled="totalGroups.length > 0"
-            >สุ่มกลุ่ม</button>
+            >
+              สุ่มกลุ่ม
+            </button>
           </div>
         </div>
       </div>
@@ -312,34 +378,48 @@ const history = () => {
             <h1 class="h1G">ประกาศการจับกลุ่ม</h1>
           </div>
           <div class="grid-container">
-            <div class="grid-item" v-for="(totalGroup, index) in totalGroups" :key="index">
+            <div
+              class="grid-item"
+              v-for="(totalGroup, index) in totalGroups"
+              :key="index"
+            >
               <div class="list-Group-final">
                 <div class="head-modalG">
-                  <h4 class="indexGroup">กลุ่มที่{{ index + 1 }}</h4>
+                  <h4 class="indexGroup">กลุ่มที่{{ index + 1 }} : {{totalGroup.length}} คน </h4>
                 </div>
                 <p class="listG" v-html="totalGroup.join('<br>')"></p>
               </div>
             </div>
           </div>
           <div class="back-final-maodal">
-            <button @click="backGroupfinal" class="modal-group-final">กลับสู่หน้าหลัก</button>
+            <button @click="backGroupfinal" class="modal-group-final">
+              กลับสู่หน้าหลัก
+            </button>
           </div>
         </div>
       </div>
-
       <!--  -->
 
       <!-- ShowList -->
       <div class="modal-bg" v-show="modalShowList == true">
         <div class="modal-content-group-submit">
           <div class="title-modal-submit">
-            <h1 class="h1G">จำนวนค่าทั้งหมด</h1>
+            <h1 class="h1G">รายชื่อทั้งหมด</h1>
           </div>
           <div class="grid-container-list mainList">
-            <p class="listG" v-html="name.join('<br>')"></p>
+            <p
+              class="singleRemove"
+              v-for="(xx, index) in name"
+              :key="index"
+              @click="singleRemove(index)"
+            >
+              {{ xx }}
+            </p>
           </div>
           <div class="input-group">
-            <button @click="listBack" class="modal-btn modal-lucky-ok">กลับสู่หน้าหลัก</button>
+            <button @click="listBack" class="modal-btn modal-lucky-ok">
+              กลับสู่หน้าหลัก
+            </button>
           </div>
         </div>
       </div>
@@ -349,8 +429,5 @@ const history = () => {
 </template>
 
 <style>
-@import url(./groupMode.css);
-@import url(./bg.css);
-@import url(./menuMain.css);
-@import url(./luckyMode.css);
+@import url(./style.css);
 </style>
