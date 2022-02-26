@@ -41,7 +41,7 @@ npm run dev
 Open http://localhost:3000/ to see the site locally. Changes to assets will rebuild the site. Refresh to see your changes.
 
 ## 🍀 User Manual ✧ﾟ
-* <img src="./src/assets/img/sound.png" width="30"> 
+* <img src="./src/assets/img/sound.png" width="30" style = "color :red" > 
    สำหรับเปิด / ปิด Background Music 
 * ช่องสำหรับกรอกรายชื่อของผู้ที่เข้าร่วมการสุ่ม
 * กด `เพิ่มค่า` เพื่อยืนยันการกรอกชื่อ
