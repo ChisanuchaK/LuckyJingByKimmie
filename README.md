@@ -57,7 +57,7 @@ Open http://localhost:8080/ to see the site locally. Changes to assets will rebu
   * หากกลุ่มที่สุ่มได้ไม่ตรงตามเงื่อนไข ***กรณีที่เหลือเศษ*** จะมี alert แจ้งให้ผู้ใช้ทราบ
   * เลือก  <img src="./src/assets/img/deletenumberG.png" width="15">  เพื่อรีเซตค่า
   *  `กลับสู่หน้าหลัก` จะไปยังหน้าแรกเพื่อใช้งาน function อื่น และ function สุ่มกลุ่มจะปิดใช้งานจนกว่ากดปุ่ม `รีเซต`
-  *  กด <img src="./src/assets/img/history.png" width="20"> เพื่อดูประวัติการสุ่มกลุ่มที่สุ่มไปล่าสุด
+  *  กด <img src="./src/assets/img/history.png" width="20"> เพื่อดูประวัติการสุ่มกลุ่มที่สุ่มไปและประวัติการสุ่มผู้โชคดี
   *  กด <img src="./src/assets/img/logo-gti.png" width="20"> เพื่อไปยัง GitHub this repository.
 * กด `รีเซต` เพื่อเริ่มใหม่
 
